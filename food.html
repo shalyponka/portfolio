@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAT CLEAN | Premium Meal Prep Los Angeles</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
+        body { background-color: #f8f9fa; color: #1d1d1f; overflow-x: hidden; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 10%; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .logo { font-size: 22px; font-weight: 700; color: #28a745; }
+        nav a { color: #86868b; text-decoration: none; margin-left: 40px; font-weight: 500; font-size: 15px; transition: 0.3s; }
+        nav a:hover { color: #28a745; }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: space-between; padding: 0 10%; background-color: #f5f5f7; padding-top: 80px; }
+        .hero-text { max-width: 550px; }
+        .hero-text h1 { font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
+        .hero-text h1 span { color: #28a745; }
+        .hero-text p { font-size: 19px; color: #86868b; line-height: 1.5; margin-bottom: 40px; }
+        .btn { display: inline-block; background-color: #28a745; color: #ffffff; padding: 16px 32px; text-decoration: none; font-weight: 600; border-radius: 30px; transition: 0.3s; }
+        .hero-image { width: 45%; height: 70vh; background: url('https://unsplash.com') no-repeat center center/cover; border-radius: 24px; }
+        .plans { padding: 120px 10%; background-color: #ffffff; }
+        .section-title { font-size: 38px; font-weight: 800; text-align: center; margin-bottom: 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { background-color: #f5f5f7; border-radius: 20px; padding: 40px; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: #28a745; background-color: #ffffff; box-shadow: 0 15px 30px rgba(0,0,0,0.05); transform: translateY(-5px); border: 1px solid #28a745; }
+        .card h3 { font-size: 24px; margin-bottom: 15px; }
+        .calories { display: inline-block; background-color: rgba(40, 167, 69, 0.1); color: #28a745; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 25px; }
+        .card p { color: #86868b; font-size: 16px; margin-bottom: 35px; height: 70px; }
+        .price { font-size: 28px; font-weight: 700; }
+        .calculator { padding: 100px 10%; background-color: #f5f5f7; }
+        .calc-container { max-width: 600px; margin: 0 auto; background-color: #ffffff; padding: 50px; border-radius: 24px; }
+        .form-group { margin-bottom: 25px; }
+        label { display: block; margin-bottom: 10px; font-weight: 600; }
+        select, input { width: 100%; padding: 16px; border: 1px solid #d2d2d7; background-color: #f5f5f7; border-radius: 12px; font-size: 16px; }
+        .calc-btn { width: 100%; background-color: #1d1d1f; color: #ffffff; border: none; padding: 18px; font-size: 16px; font-weight: 600; border-radius: 12px; cursor: pointer; transition: 0.3s; }
+        .result { margin-top: 30px; padding: 20px; background-color: rgba(40, 167, 69, 0.05); border-radius: 12px; text-align: center; font-weight: 600; color: #28a745; display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">EAT<span>CLEAN</span></div>
+        <nav><a href="#plans">Diet Plans</a><a href="#calculator">Calorie Calc</a></nav>
+    </header>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Premium Chef-Cooked <span>Meal Prep</span> In LA</h1>
+            <p>Fresh, organic, macro-calculated meals delivered straight to your doorstep.</p>
+            <a href="#plans" class="btn">View Weekly Menu</a>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+    <section id="plans" class="plans">
+        <h2 class="section-title">Choose Your <span>Goal</span></h2>
+        <div class="grid">
+            <div class="card"><h3>Weight Loss</h3><div class="calories">1,400 kcal / day</div><p>Low-carb packages designed to shred body fat.</p><div class="price">$149 / wk</div></div>
+            <div class="card"><h3>Balanced Health</h3><div class="calories">2,000 kcal / day</div><p>Perfect mix for sustainable daily energy.</p><div class="price">$169 / wk</div></div>
+            <div class="card"><h3>Muscle Gain</h3><div class="calories">2,800 kcal / day</div><p>Caloric-surplus macro packages for clean bulking.</p><div class="price">$199 / wk</div></div>
+        </div>
+    </section>
+    <section id="calculator" class="calculator">
+        <div class="calc-container">
+            <h2 class="section-title" style="font-size: 30px;">Calculate Your <span>Goal</span></h2>
+            <form id="calcForm">
+                <div class="form-group"><label>Your Weight (lbs)</label><input type="number" id="weight" required placeholder="e.g. 160"></div>
+                <div class="form-group"><label>Your Main Goal</label><select id="goal"><option value="lose">Fat Loss</option><option value="gain">Build Muscle</option></select></div>
+                <button type="submit" class="calc-btn">Calculate Macros</button>
+            </form>
+            <div id="calcResult" class="result"></div>
+        </div>
+    </section>
+    <script>
+        document.getElementById('calcForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const weight = parseFloat(document.getElementById('weight').value);
+            const goal = document.getElementById('goal').value;
+            let calories = goal === 'lose' ? Math.round(weight * 11) : Math.round(weight * 18);
+            const resultDiv = document.getElementById('calcResult');
+            resultDiv.innerHTML = `Target: <strong>${calories} kcal/day</strong>.`;
+            resultDiv.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
