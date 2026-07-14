@@ -3,127 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APEX DETAILING | Elite Automotive Care Miami</title>
+    <title>APEX QUANTUM | Bespoke Hypercar Preservation Miami</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, sans-serif; }
-        body { background-color: #08080a; color: #ffffff; overflow-x: hidden; }
+        :root {
+            --bg-main: #030305;
+            --accent: #ff1f44;
+            --accent-glow: rgba(255, 31, 68, 0.3);
+            --card-bg: rgba(15, 15, 23, 0.7);
+            --border: rgba(255, 255, 255, 0.05);
+            --text-muted: #84849a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-main); color: #ffffff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background-color: rgba(8, 8, 10, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #16161f; backdrop-filter: blur(10px); }
-        .logo { font-size: 24px; font-weight: 900; letter-spacing: 2px; color: #ff2a2a; text-transform: uppercase; }
+        /* Шапка в стиле Apple Glassmorphism */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 8%; background: rgba(3, 3, 5, 0.75); 
+            position: fixed; width: 100%; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--border); backdrop-filter: blur(20px);
+        }
+        .logo { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 3px; color: var(--accent); }
         .logo span { color: #ffffff; }
-        nav a { color: #9494a6; text-decoration: none; margin-left: 35px; font-weight: 600; font-size: 15px; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
-        nav a:hover { color: #ff2a2a; }
+        nav a { color: var(--text-muted); text-decoration: none; margin-left: 40px; font-weight: 600; font-size: 14px; transition: 0.3s; letter-spacing: 1px; text-transform: uppercase; }
+        nav a:hover { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
         
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 0 8%; background: linear-gradient(rgba(8,8,10,0.5), #08080a), url('https://unsplash.com') no-repeat center center/cover; }
-        .hero h1 { font-size: 72px; font-weight: 900; line-height: 1.05; margin-bottom: 25px; text-transform: uppercase; letter-spacing: -2px; }
-        .hero h1 span { color: #ff2a2a; }
-        .hero p { font-size: 20px; color: #b4b4c6; max-width: 650px; margin-bottom: 45px; line-height: 1.6; }
+        /* Экран Кинематографичный */
+        .hero { 
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; 
+            align-items: flex-start; padding: 0 8%; 
+            background: linear-gradient(to bottom, rgba(3,3,5,0.2), var(--bg-main)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            position: relative;
+        }
+        .hero-badge {
+            background: rgba(255, 31, 68, 0.1); border: 1px solid var(--accent);
+            color: var(--accent); padding: 6px 16px; border-radius: 30px;
+            font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;
+        }
+        .hero h1 { font-family: 'Syne', sans-serif; font-size: 80px; font-weight: 800; line-height: 0.95; margin-bottom: 30px; text-transform: uppercase; letter-spacing: -3px; }
+        .hero h1 span { color: transparent; -webkit-text-stroke: 1.5px #ffffff; }
+        .hero p { font-size: 19px; color: var(--text-muted); max-width: 600px; margin-bottom: 50px; line-height: 1.6; font-weight: 400; }
         
-        .btn { display: inline-block; background-color: #ff2a2a; color: #ffffff; padding: 18px 40px; text-decoration: none; font-weight: 700; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 4px 20px rgba(255,42,42,0.3); }
-        .btn:hover { background-color: #d91e1e; transform: translateY(-3px); box-shadow: 0 6px 25px rgba(255,42,42,0.4); }
+        .btn { 
+            display: inline-block; background-color: var(--accent); color: #ffffff; 
+            padding: 20px 45px; text-decoration: none; font-weight: 800; border-radius: 0px; 
+            text-transform: uppercase; letter-spacing: 2px; font-size: 13px; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+            box-shadow: 0 10px 30px var(--accent-glow); 
+        }
+        .btn:hover { background-color: #ffffff; color: var(--bg-main); transform: translateY(-4px); box-shadow: 0 15px 40px rgba(255,255,255,0.2); }
         
-        .services { padding: 120px 8%; background-color: #08080a; }
-        .section-title { font-size: 42px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; text-align: center; letter-spacing: -1px; }
-        .section-title span { color: #ff2a2a; }
-        .section-subtitle { text-align: center; color: #71718a; font-size: 16px; margin-bottom: 80px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        /* Сетка Услуг */
+        .services { padding: 140px 8%; background-color: var(--bg-main); }
+        .section-header { text-align: center; margin-bottom: 100px; }
+        .section-title { font-family: 'Syne', sans-serif; font-size: 48px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 20px; }
+        .section-title span { color: var(--accent); }
+        .section-subtitle { color: var(--text-muted); font-size: 16px; max-width: 550px; margin: 0 auto; line-height: 1.6; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
-        .card { background-color: #0f0f14; border: 1px solid #1c1c28; padding: 45px 35px; border-radius: 8px; transition: 0.3s; position: relative; overflow: hidden; }
-        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #ff2a2a; transform: scaleY(0); transition: 0.3s; origin: top; }
-        .card:hover::before { transform: scaleY(1); }
-        .card:hover { border-color: #2a2a38; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .card h3 { font-size: 24px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .card p { color: #9494a6; font-size: 15px; line-height: 1.6; margin-bottom: 30px; }
-        .price { font-size: 28px; font-weight: 900; color: #ff2a2a; display: flex; align-items: center; justify-content: space-between; }
-        .price span { font-size: 14px; color: #52526b; font-weight: 500; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
+        .card { 
+            background: var(--card-bg); border: 1px solid var(--border); padding: 50px 40px; 
+            border-radius: 0px; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); backdrop-filter: blur(10px);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .card:hover { 
+            border-color: var(--accent); transform: translateY(-8px) scale(1.02); 
+            box-shadow: 0 20px 50px rgba(255,31,68,0.15); 
+        }
+        .card-meta { font-size: 12px; color: var(--accent); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+        .card h3 { font-family: 'Syne', sans-serif; font-size: 26px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card p { color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 40px; font-weight: 400; }
+        .price { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; color: #ffffff; border-top: 1px solid var(--border); padding-top: 25px; display: flex; justify-content: space-between; align-items: center; }
+        .price span { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
         
-        .gallery { padding: 100px 8%; background-color: #0d0d12; border-top: 1px solid #16161f; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 60px; }
-        .gallery-item { height: 250px; border-radius: 6px; overflow: hidden; position: relative; border: 1px solid #1c1c28; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
+        /* Гараж / Шоукейс */
+        .fleet { padding: 100px 8%; background-color: #060609; border-top: 1px solid var(--border); }
+        .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px; margin-top: 60px; }
+        .fleet-item { height: 320px; position: relative; overflow: hidden; border: 1px solid var(--border); }
+        .fleet-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fleet-meta { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; background: linear-gradient(to top, rgba(3,3,5,0.9), transparent); transform: translateY(20px); opacity: 0; transition: 0.4s; }
+        .fleet-item:hover img { transform: scale(1.08); filter: brightness(0.8); }
+        .fleet-item:hover .fleet-meta { transform: translateY(0); opacity: 1; }
+        .fleet-meta h4 { font-family: 'Syne', sans-serif; font-size: 20px; text-transform: uppercase; }
+        .fleet-meta p { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-top: 5px; text-transform: uppercase; }
+
+        /* Форма Инспекции */
+        .booking { background-color: var(--bg-main); padding: 140px 8%; border-top: 1px solid var(--border); }
+        .form-container { max-width: 650px; margin: 0 auto; background: #07070a; padding: 60px; border: 1px solid var(--border); }
+        .form-group { margin-bottom: 30px; }
+        label { display: block; margin-bottom: 12px; color: #ffffff; font-size: 12px; text-transform: uppercase; font-weight: 800; letter-spacing: 2px; }
+        input, select { width: 100%; padding: 18px; background-color: var(--bg-main); border: 1px solid var(--border); color: #ffffff; font-size: 15px; transition: 0.3s; font-weight: 600; }
+        input:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+        .submit-btn { width: 100%; background-color: var(--accent); color: #ffffff; border: none; padding: 20px; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 20px var(--accent-glow); }
+        .submit-btn:hover { background-color: #ffffff; color: var(--bg-main); box-shadow: 0 10px 30px rgba(255,255,255,0.2); }
         
-        .booking { background-color: #08080a; padding: 120px 8%; border-top: 1px solid #16161f; }
-        .form-container { max-width: 600px; margin: 0 auto; background: #0f0f14; padding: 50px; border-radius: 8px; border: 1px solid #1c1c28; }
-        .form-group { margin-bottom: 25px; }
-        label { display: block; margin-bottom: 10px; color: #9494a6; font-size: 13px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
-        input, select { width: 100%; padding: 16px; background-color: #08080a; border: 1px solid #1c1c28; color: #ffffff; border-radius: 4px; font-size: 16px; transition: 0.3s; }
-        input:focus, select:focus { outline: none; border-color: #ff2a2a; }
-        .submit-btn { width: 100%; background-color: #ff2a2a; color: #ffffff; border: none; padding: 18px; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
-        .submit-btn:hover { background-color: #d91e1e; }
-        
-        footer { padding: 40px 8%; background-color: #050507; border-top: 1px solid #16161f; text-align: center; color: #52526b; font-size: 14px; }
+        footer { padding: 50px 8%; background-color: #020203; border-top: 1px solid var(--border); text-align: center; color: rgba(255,255,255,0.2); font-size: 13px; font-weight: 600; letter-spacing: 1px; }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">APEX<span>DETAILING</span></div>
-        <nav><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#booking">Book Studio</a></nav>
+        <div class="logo">APEX<span>QUANTUM</span></div>
+        <nav><a href="#services">Treatments</a><a href="#fleet">The Fleet</a><a href="#booking">Secure Slot</a></nav>
     </header>
 
     <section class="hero">
-        <h1>Concourse Grade <br><span>Detailing & Protection</span></h1>
-        <p>Miami's ultimate automotive preservation studio. Specializing in multi-stage paint correction, ultra-hydrophobic 9H ceramic coatings, and bespoke interior restoration.</p>
-        <a href="#booking" class="btn">Book Inspection</a>
+        <div class="hero-badge">Miami Laboratory Node // Secure Access</div>
+        <h1>Next-Gen <br><span>Surface Armor</span></h1>
+        <p>Bespoke concours-level detailing, multi-stage paint correction, and state-of-the-art molecular quartz coatings engineered exclusively for hypercars and rare collections.</p>
+        <a href="#booking" class="btn">Request Commission</a>
     </section>
 
     <section id="services" class="services">
-        <h2 class="section-title">Our Bespoke <span>Treatments</span></h2>
-        <p class="section-subtitle">We don't just wash cars. We meticulously restore and protect every square inch of your vehicle using advanced nanotechnology.</p>
+        <div class="section-header">
+            <h2 class="section-title">Surface <span>Calibrations</span></h2>
+            <p class="section-subtitle">We don't do cleaning. We execute precise surface engineering to eliminate microscopic flaws and apply hard nanotech armor.</p>
+        </div>
         <div class="grid">
             <div class="card">
-                <h3>Paint Correction</h3>
-                <p>Multi-stage machine leveling process to permanently eliminate heavy swirls, holograms, deep scratches, and oxidation.</p>
-                <div class="price">$450+ <span>2-3 Days Process</span></div>
+                <div>
+                    <div class="card-meta">Stage II - III // Correction</div>
+                    <h3>Paint Levelling</h3>
+                    <p>Microscopic machine jewelling process removing 95%+ of sub-surface defects, deep swirls, and heavy holograms. Restores optical clarity to the clear coat layer.</p>
+                </div>
+                <div class="price">$650 <span>Base Rate</span></div>
             </div>
             <div class="card">
-                <h3>9H Ceramic Coating</h3>
-                <p>Advanced nanotech shield bonding to your clear coat. Delivers mirror-like gloss, extreme slickness, and 5+ years of solid chemical defense.</p>
-                <div class="price">$899+ <span>Dual Layer Application</span></div>
+                <div>
+                    <div class="card-meta">Nanotech Molecular // Shield</div>
+                    <h3>Quartz Coating</h3>
+                    <p>Dual-layer application of 9H hardness organic silane structures. Forms an ultra-hydrophobic covalent bond with extreme slickness and deep wet-look reflection.</p>
+                </div>
+                <div class="price">$1,200 <span>Infrared Cured</span></div>
             </div>
-            <div class="card">
-                <h3>Interior Deep Clean</h3>
-                <p>Full high-pressure steam extraction, biological decontamination, and premium Swissvax leather conditioning treatments.</p>
-                <div class="price">$300+ <span>Cabin Restoration</span></div>
-            </div>
-            <div class="card">
-                <h3>Paint Protection Film</h3>
-                <p>Ultra-rugged, self-healing optically clear urethane shield blocking physical rock chips, road road debris, and heavy scratches.</p>
-                <div class="price">$1,999+ <span>Computer Cut Templates</span></div>
-            </div>
-            <div class="card">
-                <h3>Wheel & Caliper Coating</h3>
-                <p>High-temp resistant ceramic shield blocking corrosive brake dust and road salt accumulation on high-end rims.</p>
-                <div class="price">$250+ <span>Full Infrared Curing</span></div>
-            </div>
-            <div class="card">
-                <h3>Bespoke Concours Prep</h3>
-                <p>Full-scale ground-up detailing under microscopic lighting for car shows, premium auctions, and vintage collectors.</p>
-                <div class="price">$1,500+ <span>Bespoke Execution</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="gallery">
-        <h2 class="section-title">Recent <span>Preservations</span></h2>
-        <p class="section-subtitle">A look into the immaculate finishes rolling out of our secure temperature-controlled studio slots.</p>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://unsplash.com" alt="Supercar"></div>
-            <div class="gallery-item"><img src="https://unsplash.com" alt="Luxury Car"></div>
-            <div class="gallery-item"><img src="https://unsplash.com" alt="Porsche"></div>
-            <div class="gallery-item"><img src="https://unsplash.com" alt="AMG"></div>
-        </div>
-    </section>
-
-    <section id="booking" class="booking">
-        <div class="form-container">
-            <h2 class="section-title" style="margin-bottom: 30px; font-size: 32px;">Secure Your <span>Studio Slot</span></h2>
-            <form id="detailForm">
-                <div class="form-group"><label>Owner Name</label><input type="text" id="name" required placeholder="John Doe"></div>
-                <div class="form-group"><label>Vehicle Make & Model</label><input type="text" id="car" required placeholder="e.g. Porsche 911 GT3 RS"></div>
-                <div class="form-group">
-                    <label>Select Stage Package</label>
-                    <select id="service">
-                        <option>Bespoke Multi-Stage Paint Correction ($450+)</option>
-                        <option>Ultra 9H Nano-Ceramic Protection Shield ($899+)</option>
-                        <option>Bespoke Full Cabin Deep Extraction Stage ($300+)</option>
